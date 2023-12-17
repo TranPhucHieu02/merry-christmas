@@ -1,0 +1,8 @@
+
+canvas {
+    background-image: url('bg1.gif');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+  }
