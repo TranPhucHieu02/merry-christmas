@@ -31,23 +31,32 @@ function init() {
     }
   }
 
+  var isTouchDevice = 'ontouchstart' in document.documentElement;
+
   function handleOpenEvent() {
-  present.classList.toggle("open");
-  document.getElementById('card').classList.add('card-show');
-}
+    if (isTouchDevice) {
+      // Thiết bị cảm ứng, xoay về đúng hướng trước khi mở
+      present.classList.toggle("rotate");
+      setTimeout(function () {
+        present.classList.toggle("open");
+        document.getElementById('card').classList.add('card-show');
+      }, 500); // Thời gian xoay (500ms) có thể điều chỉnh
+    } else {
+      // Máy tính, mở trực tiếp
+      present.classList.toggle("open");
+      document.getElementById('card').classList.add('card-show');
+    }
+  }
 
-// Kiểm tra xem có phải là thiết bị cảm ứng hay không
-var isTouchDevice = 'ontouchstart' in document.documentElement;
-
-// Sử dụng touchstart cho thiết bị cảm ứng và click cho máy tính
-if (isTouchDevice) {
-  present.addEventListener("touchstart", function(e) {
-    e.preventDefault(); // Nếu cần
-    handleOpenEvent();
-  }, false);
-} else {
-  present.addEventListener("click", handleOpenEvent, false);
-}
+  // Sử dụng touchstart cho thiết bị cảm ứng và click cho máy tính
+  if (isTouchDevice) {
+    present.addEventListener("touchstart", function (e) {
+      e.preventDefault();
+      handleOpenEvent();
+    }, false);
+  } else {
+    present.addEventListener("click", handleOpenEvent, false);
+  }
 
   nametag.innerText = to;
 }
