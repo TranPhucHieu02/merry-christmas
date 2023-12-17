@@ -38,10 +38,9 @@ function init() {
       // Thiết bị cảm ứng, xoay về đúng hướng trước khi mở
       present.classList.toggle("rotate");
       setTimeout(function () {
-        present.classList.toggle("rotate-clockwise")
         present.classList.toggle("open");
         document.getElementById('card').classList.add('card-show');
-      }, 200); // Thời gian xoay (500ms) có thể điều chỉnh
+      }, 300); // Thời gian xoay (300ms) có thể điều chỉnh
     } else {
       // Máy tính, mở trực tiếp
       present.classList.toggle("open");
