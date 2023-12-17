@@ -40,7 +40,7 @@ function init() {
       setTimeout(function () {
         present.classList.toggle("open");
         document.getElementById('card').classList.add('card-show');
-      }, 300); // Thời gian xoay (300ms) có thể điều chỉnh
+      }, 500); // Thời gian xoay (500ms) có thể điều chỉnh
     } else {
       // Máy tính, mở trực tiếp
       present.classList.toggle("open");
