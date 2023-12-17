@@ -38,7 +38,7 @@ function init() {
       // Thiết bị cảm ứng, xoay về đúng hướng trước khi mở
       present.classList.toggle("rotate");
       setTimeout(function () {
-        present.classList.toggle("rotate-clockwise")
+        //present.classList.toggle("rotate-clockwise")
         present.classList.toggle("open");
         document.getElementById('card').classList.add('card-show');
       }, 500); // Thời gian xoay (500ms) có thể điều chỉnh
@@ -52,7 +52,7 @@ function init() {
   // Sử dụng touchstart cho thiết bị cảm ứng và click cho máy tính
   if (isTouchDevice) {
     present.addEventListener("touchstart", function (e) {
-      e.preventDefault();
+      //e.preventDefault();
       handleOpenEvent();
     }, false);
   } else {
