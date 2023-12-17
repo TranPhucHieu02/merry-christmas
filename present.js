@@ -31,16 +31,23 @@ function init() {
     }
   }
 
-  present.addEventListener(
-    "click",
-    function (e) {
-      if (!present.classList.contains("open")) {
-        present.classList.add("open");
-        document.getElementById("card").classList.add("card-show");
-      }
-    },
-    false
-  );
+  function handleOpenEvent() {
+  present.classList.toggle("open");
+  document.getElementById('card').classList.add('card-show');
+}
+
+// Kiểm tra xem có phải là thiết bị cảm ứng hay không
+var isTouchDevice = 'ontouchstart' in document.documentElement;
+
+// Sử dụng touchstart cho thiết bị cảm ứng và click cho máy tính
+if (isTouchDevice) {
+  present.addEventListener("touchstart", function(e) {
+    e.preventDefault(); // Nếu cần
+    handleOpenEvent();
+  }, false);
+} else {
+  present.addEventListener("click", handleOpenEvent, false);
+}
 
   nametag.innerText = to;
 }
